@@ -221,10 +221,9 @@ It was generated so the analysis could be published openly.
 
 ## Author
 
-Madhusudhan
+Harshal Goel
 
-<!-- add your links -->
-LinkedIn · GitHub · Email
+[LinkedIn](https://www.linkedin.com/in/harshal-goel-11265b266) · harshalgoel9@gmail.com
 
 ## Licence
 
