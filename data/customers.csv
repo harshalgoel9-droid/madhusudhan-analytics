@@ -1,0 +1,144 @@
+account_code,account_name,city,salesman_code
+ACC-001,Om Dubey Super Market,Muzaffarnagar,SM01
+ACC-002,New Dubey Marketing,Kairana,SM05
+ACC-003,Krishna Khurana Provisions,Budhana,SM02
+ACC-004,Jai Solanki Traders,Deoband,SM05
+ACC-005,Malhotra Dairy,Kairana,SM05
+ACC-006,Ganesh Jindal Dairy,Kairana,SM05
+ACC-007,Om Pandey Distributors,Purqazi,SM04
+ACC-008,Shree Maheshwari Enterprises,Shamli,SM01
+ACC-009,Krishna Srivastava Agencies,Kairana,SM05
+ACC-010,Shree Mishra Provisions,Muzaffarnagar,SM01
+ACC-011,New Maheshwari Super Market,Kairana,SM05
+ACC-012,Bhardwaj Dairy,Charthawal,SM03
+ACC-013,Krishna Sachdeva Enterprises,Khatauli,SM02
+ACC-014,Maa Chopra Kirana Store,Khatauli,SM02
+ACC-015,Wadhwa Super Market,Muzaffarnagar,SM01
+ACC-016,Ganesh Bhardwaj Trading Co.,Budhana,SM02
+ACC-017,Maa Malik Enterprises,Kairana,SM05
+ACC-018,Krishna Sharma Enterprises,Kairana,SM05
+ACC-019,Mishra Agencies,Muzaffarnagar,SM01
+ACC-020,Krishna Bhardwaj Trading Co.,Khatauli,SM02
+ACC-021,Shri Tandon Stores,Muzaffarnagar,SM01
+ACC-022,Tandon & Company,Kairana,SM05
+ACC-023,Agarwal Distributors,Jansath,SM03
+ACC-024,Maa Baliyan Super Market,Muzaffarnagar,SM01
+ACC-025,Om Chaudhary Agencies,Budhana,SM02
+ACC-026,Krishna Goel Marketing,Shamli,SM01
+ACC-027,Shree Gupta & Sons,Miranpur,SM04
+ACC-028,Srivastava Distributors,Jansath,SM03
+ACC-029,Balaji Rana Agencies,Khatauli,SM02
+ACC-030,Laxmi Sharma Stores,Jansath,SM03
+ACC-031,Laxmi Sirohi Super Market,Charthawal,SM03
+ACC-032,Goyal Super Market,Deoband,SM05
+ACC-033,Balaji Singhal Stores,Deoband,SM05
+ACC-034,Mishra & Company,Khatauli,SM02
+ACC-035,Ganesh Baliyan Traders,Deoband,SM05
+ACC-036,Shree Saini Enterprises,Budhana,SM02
+ACC-037,Maa Yadav Stores,Charthawal,SM03
+ACC-038,Krishna Saxena Provisions,Miranpur,SM04
+ACC-039,New Chopra Dairy,Deoband,SM05
+ACC-040,New Mishra Trading Co.,Shamli,SM01
+ACC-041,Chopra Traders,Purqazi,SM04
+ACC-042,Maa Sachdeva Agencies,Charthawal,SM03
+ACC-043,Shree Jain Dairy,Miranpur,SM04
+ACC-044,Mittal Marketing,Khatauli,SM02
+ACC-045,Jai Yadav Sales Corporation,Miranpur,SM04
+ACC-046,New Kapoor Traders,Kairana,SM05
+ACC-047,Khurana Distributors,Jansath,SM03
+ACC-048,Maa Sharma Marketing,Budhana,SM02
+ACC-049,Goyal General Store,Muzaffarnagar,SM01
+ACC-050,Jai Sachdeva & Company,Budhana,SM02
+ACC-051,Laxmi Sachdeva Traders,Jansath,SM03
+ACC-052,Krishna Srivastava & Company,Shamli,SM01
+ACC-053,Tandon Trading Co.,Charthawal,SM03
+ACC-054,Jai Goyal General Store,Miranpur,SM04
+ACC-055,Shree Pandey Stores,Charthawal,SM03
+ACC-056,Bajaj Provisions,Deoband,SM05
+ACC-057,Balaji Bhatia Enterprises,Deoband,SM05
+ACC-058,Balaji Tandon & Company,Miranpur,SM04
+ACC-059,Balaji Garg Agencies,Purqazi,SM04
+ACC-060,New Ahuja Trading Co.,Jansath,SM03
+ACC-061,Jai Srivastava General Store,Muzaffarnagar,SM01
+ACC-062,Dubey General Store,Khatauli,SM02
+ACC-063,Ganesh Kapoor Trading Co.,Charthawal,SM03
+ACC-064,Laxmi Mishra Super Market,Miranpur,SM04
+ACC-065,Jai Garg Enterprises,Shamli,SM01
+ACC-066,Dhingra Marketing,Muzaffarnagar,SM01
+ACC-067,Gupta Trading Co.,Khatauli,SM02
+ACC-068,Ganesh Saxena General Store,Shamli,SM01
+ACC-069,Balaji Kapoor General Store,Budhana,SM02
+ACC-070,Shree Agarwal Agencies,Miranpur,SM04
+ACC-071,New Kansal & Sons,Muzaffarnagar,SM01
+ACC-072,Verma Agencies,Khatauli,SM02
+ACC-073,Maa Gupta Dairy,Jansath,SM03
+ACC-074,Jai Bajaj Stores,Khatauli,SM02
+ACC-075,Krishna Bhardwaj Super Market,Charthawal,SM03
+ACC-077,Balaji Tiwari Marketing,Shamli,SM01
+ACC-078,Krishna Singhal & Company,Shamli,SM01
+ACC-079,Maa Khurana Agencies,Muzaffarnagar,SM01
+ACC-080,Malhotra Enterprises,Kairana,SM05
+ACC-081,Jai Kapoor Super Market,Charthawal,SM03
+ACC-082,Shree Kaushik Enterprises,Charthawal,SM03
+ACC-083,Maa Goel & Sons,Miranpur,SM04
+ACC-084,Ganesh Saxena Distributors,Budhana,SM02
+ACC-085,Laxmi Sirohi Marketing,Jansath,SM03
+ACC-087,Khurana & Sons,Khatauli,SM02
+ACC-088,Krishna Khurana Sales Corporation,Charthawal,SM03
+ACC-089,Jai Sharma Provisions,Purqazi,SM04
+ACC-090,Malik Stores,Miranpur,SM04
+ACC-091,Krishna Chaudhary Agencies,Kairana,SM05
+ACC-092,Bhardwaj Distributors,Purqazi,SM04
+ACC-093,Maa Malik & Company,Charthawal,SM03
+ACC-094,Singla Stores,Budhana,SM02
+ACC-095,Maa Gupta Provisions,Charthawal,SM03
+ACC-096,Maheshwari Stores,Deoband,SM05
+ACC-097,New Mishra Distributors,Deoband,SM05
+ACC-098,Balaji Rana Distributors,Shamli,SM01
+ACC-099,Balaji Garg Distributors,Khatauli,SM02
+ACC-100,New Tandon Super Market,Khatauli,SM02
+ACC-101,Shri Ahuja Enterprises,Miranpur,SM04
+ACC-102,Shree Solanki Distributors,Kairana,SM05
+ACC-103,Wadhwa Enterprises,Budhana,SM02
+ACC-104,Bajaj Agencies,Budhana,SM02
+ACC-105,Maa Singhal Enterprises,Miranpur,SM04
+ACC-106,Shree Ahuja & Company,Khatauli,SM02
+ACC-107,Ganesh Sachdeva Provisions,Charthawal,SM03
+ACC-108,New Ahuja Distributors,Deoband,SM05
+ACC-109,Laxmi Goel Traders,Purqazi,SM04
+ACC-110,Laxmi Kansal & Sons,Kairana,SM05
+ACC-111,Dubey & Sons,Kairana,SM05
+ACC-112,Om Goyal Kirana Store,Muzaffarnagar,SM01
+ACC-113,Singla Enterprises,Khatauli,SM02
+ACC-114,Sirohi Marketing,Muzaffarnagar,SM01
+ACC-115,Sethi Super Market,Budhana,SM02
+ACC-116,Shree Singla & Company,Miranpur,SM04
+ACC-117,Shri Khandelwal Sales Corporation,Deoband,SM05
+ACC-118,Laxmi Rana & Sons,Budhana,SM02
+ACC-119,Solanki Dairy,Deoband,SM05
+ACC-120,Ganesh Kansal Provisions,Muzaffarnagar,SM01
+ACC-121,New Yadav Trading Co.,Miranpur,SM04
+ACC-122,Balaji Agarwal Traders,Miranpur,SM04
+ACC-123,Ganesh Goel Distributors,Miranpur,SM04
+ACC-124,Shree Garg Trading Co.,Muzaffarnagar,SM01
+ACC-125,Balaji Tandon Provisions,Khatauli,SM02
+ACC-126,Bhatia General Store,Miranpur,SM04
+ACC-127,Ganesh Mishra Marketing,Charthawal,SM03
+ACC-128,Shree Saxena General Store,Deoband,SM05
+ACC-129,Maheshwari & Sons,Miranpur,SM04
+ACC-130,Maa Nagpal & Company,Deoband,SM05
+ACC-131,Jai Yadav Traders,Shamli,SM01
+ACC-132,Shri Bhardwaj Sales Corporation,Miranpur,SM04
+ACC-133,New Singla Stores,Shamli,SM01
+ACC-134,Jai Wadhwa Sales Corporation,Kairana,SM05
+ACC-135,Agarwal Traders,Khatauli,SM02
+ACC-136,Shree Khandelwal Distributors,Jansath,SM03
+ACC-137,Jai Solanki Marketing,Charthawal,SM03
+ACC-138,Ganesh Gupta Trading Co.,Muzaffarnagar,SM01
+ACC-139,Goel Trading Co.,Muzaffarnagar,SM01
+ACC-140,Laxmi Saxena Kirana Store,Kairana,SM05
+ACC-141,Shri Wadhwa Sales Corporation,Muzaffarnagar,SM01
+ACC-142,Om Srivastava & Company,Kairana,SM05
+ACC-143,Garg Marketing,Muzaffarnagar,SM01
+ACC-144,Shree Ahuja Provisions,Shamli,SM01
+ACC-145,Nagpal Kirana Store,Budhana,SM02
