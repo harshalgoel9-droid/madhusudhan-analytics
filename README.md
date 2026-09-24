@@ -136,7 +136,7 @@ tableau/
   summary_by_salesman.csv      one row per salesman
   TABLEAU_GUIDE.md             step by step dashboard build
 
-WALKTHROUGH.md                 every step explained, and why
+METHODOLOGY.md                 every step explained, and why
 ```
 
 ---

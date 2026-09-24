@@ -1,4 +1,4 @@
-# Walkthrough
+# Methodology
 
 Every step of the project, what it does and why it was done that way.
 
@@ -12,8 +12,7 @@ Every step of the project, what it does and why it was done that way.
 6. [MySQL](#6-mysql)
 7. [Tableau](#7-tableau)
 8. [Findings](#8-findings)
-9. [Interview questions](#9-interview-questions)
-10. [What was left out](#10-what-was-left-out)
+9. [What was left out](#9-what-was-left-out)
 
 ---
 
@@ -46,8 +45,8 @@ analysis, so they are worth noticing early.
 
 ## 2. How the questions were chosen
 
-Anyone can write `GROUP BY city`. Knowing which questions are worth asking is the harder part, and it
-is what gets probed in interviews.
+Writing the queries is the easy half. Deciding which questions are worth asking is the part that
+determines whether the analysis is useful.
 
 ### Work backwards from a decision
 
@@ -118,8 +117,8 @@ support.
 Forecasting next year, because three annual points is not a time series. A trend line through three
 dots looks sophisticated and means nothing.
 
-Being able to say what the data cannot answer is worth as much as the answers. It also comes up
-directly in interviews.
+Stating what the data cannot answer is part of the result. An analysis that is silent about its own
+limits invites decisions it cannot support.
 
 ---
 
@@ -216,7 +215,7 @@ print('unique invoice_no :', sales.invoice_no.nunique())   # 2536
 They differ, so a row is one line on an invoice, not one invoice. An invoice with two pack sizes is
 two rows.
 
-This decides how you count from then on. `COUNT(*)` counts lines. Counting invoices needs
+This decides how everything is counted from then on. `COUNT(*)` counts lines. Counting invoices needs
 `COUNT(DISTINCT invoice_no)`. Getting it wrong overstates orders by 8% with no error message.
 
 ### Check the data
@@ -255,8 +254,7 @@ yearly['rate_per_litre'] = yearly.revenue / yearly.litres
 Total revenue divided by total litres, not the average of `rate_per_carton`.
 
 A plain average treats a one-carton invoice and a fifty-carton invoice as equally important. Dividing
-totals weights each sale by its size, which is what the price actually achieved means. This is a common
-mistake and worth being able to explain.
+totals weights each sale by its size, which is what the price actually achieved means.
 
 ### The cohort
 
@@ -323,8 +321,7 @@ argument rather than a list.
 | `ROWS UNBOUNDED PRECEDING` | Q10 | running total down the customer list |
 | `HAVING` | Q5 | filter after grouping |
 
-`WHERE` versus `HAVING` comes up constantly in interviews. `WHERE` filters rows before grouping,
-`HAVING` filters groups after. Q5 needs `HAVING COUNT(DISTINCT fy) = 3` because appearing in three
+`WHERE` filters rows before grouping, `HAVING` filters groups after. Q5 needs `HAVING COUNT(DISTINCT fy) = 3` because appearing in three
 years is a property of the group, not of any single row.
 
 Window functions need MySQL 8.0. On 5.7 they will not run.
@@ -395,54 +392,7 @@ What happens next. Three annual points is not a forecast.
 
 ---
 
-## 9. Interview questions
-
-**Walk me through the project.**
-
-A ghee distributor was judging the business on revenue, which rose every year. I split revenue into
-volume and price and found most of the growth was price. Volume was flat. Customer count was up 18%
-but volume per account was down 13%, so I ran a cohort check on the 107 accounts present in all three
-years. They were down 8.9%, which meant real demand loss rather than new customer mix.
-
-**Why three tools?**
-
-Python to explore, because it is fast and disposable. MySQL to answer, because the answers have to be
-reproducible by anyone who runs the file. Tableau to present, because the owner will not read a
-notebook.
-
-**How did you decide what to analyse?**
-
-I started from what the owner believed, that revenue is up so things are fine, and broke it into parts
-that could be tested. Each answer suggested the next question. I kept only the questions where the
-answer would change a decision.
-
-**What is the weakest part of this analysis?**
-
-It shows volume is falling but not why, because there is no competitor, pricing or stock-out data.
-With three annual points I can describe the trend but not forecast it. The cohort finding is the part
-I trust most, because it controls for the obvious objection.
-
-**Isn't the drop in volume per account just from adding small new accounts?**
-
-That was my first concern, which is why I ran the cohort. Holding the customer list fixed at the 107
-accounts present in all three years, volume still fell 8.9%.
-
-**Why didn't you use the tax data?**
-
-GST is collected for the government and passed through, so it is not revenue. Including it would
-inflate every figure by 12% and change none of the conclusions.
-
-**Why MySQL rather than something else?**
-
-The data is relational and the questions are aggregations across joins, which is what SQL is for. The
-window functions need 8.0.
-
-The dataset is synthetic, which is stated in the README. Say so if asked. The method is what is being
-demonstrated.
-
----
-
-## 10. What was left out
+## 9. What was left out
 
 | Left out | Why |
 |---|---|
