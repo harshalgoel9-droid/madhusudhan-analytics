@@ -335,9 +335,18 @@ Window functions need MySQL 8.0. On 5.7 they will not run.
 
 Build steps are in `tableau/TABLEAU_GUIDE.md`.
 
-Tableau reads one flat extract rather than connecting to MySQL directly. Tableau can join tables
-itself, but then the joins live inside a binary workbook where they cannot be reviewed or diffed.
-Doing them in SQL and handing Tableau one clean table keeps the logic in files you can read.
+Tableau reads one flat extract rather than connecting to MySQL directly. The extract is written by
+the notebook, from the CSVs in `data/`, in its last step.
+
+Tableau can join tables itself, but then the joins live inside a binary workbook where they cannot be
+reviewed or diffed. Doing them in code and handing Tableau one clean table keeps the logic in a file
+you can read.
+
+The extract is row level, all 2,742 invoice lines. Tableau aggregates it. Handing over pre-aggregated
+results would be a mistake, because the year filter and the drill-downs would have nothing to work on.
+
+The notebook and the MySQL view `v_sales` do the same joins and the same financial year logic,
+written separately. Running both and comparing the totals is what confirmed neither had a bug in it.
 
 Five sheets, one dashboard, one filter. Every extra control invites the viewer to wander off the
 point.

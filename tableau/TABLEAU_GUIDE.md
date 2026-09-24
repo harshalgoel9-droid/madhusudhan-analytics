@@ -28,8 +28,16 @@ behind them.
 3. Check `invoice_date` has a calendar icon. If it shows `Abc`, click the icon and change the type to
    **Date**.
 
-That file is the four tables already joined, with the financial year added. The joining was done in
-MySQL. Tableau is the presentation layer.
+That file is the four tables already joined, with the financial year and month added. It is written
+by the notebook, in the last step of `notebooks/01_exploratory_analysis.ipynb`, straight from the CSVs
+in `data/`.
+
+It is row level, not aggregated. All 2,742 invoice lines are in it, so Tableau does its own summing.
+Nothing has been pre-calculated except the joins and the two date columns. That matters: if the
+extract held aggregated results, the year filter on the dashboard could not work.
+
+The MySQL view `v_sales` does exactly the same joins and the same financial year logic. The two were
+written separately and checked against each other, which is a useful thing to have done.
 
 ## Two calculated fields
 
