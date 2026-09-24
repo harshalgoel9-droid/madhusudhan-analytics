@@ -1,25 +1,28 @@
 # Building the dashboard in Tableau
 
-There is a ready-made workbook in this folder: `ghee_sales_dashboard.twb`. Open it from here, so it
-finds `ghee_sales_extract.csv` sitting beside it. It has the five sheets and the dashboard already
-laid out.
+There is a ready-made workbook here: `ghee_sales_dashboard.twb`. Open it from this folder so it finds
+its three CSVs beside it. It has six sheets and a dashboard already laid out.
 
-The rest of this file is the build from scratch, which takes about 40 minutes. Worth doing even with
-the workbook in hand, because in an interview you get asked how you made it, and you can only answer
-that about something you built.
+The rest of this file is the build from scratch, about 40 minutes. Worth doing anyway, because in an
+interview you get asked how you made it, and you can only answer that about something you built.
 
-Two things the workbook leaves for you, both two clicks each:
+## The three data files
 
-- **Revenue vs Volume** shows the two measures as stacked charts on a shared year axis. To make it a
-  dual axis, right-click the `Litres` axis and choose **Dual Axis**.
-- **Volume per Account** does the same with litres per account and the account count. Right-click the
-  `CNTD(account_code)` axis, choose **Dual Axis**, then set that mark type to **Line**.
+| File | Grain | Used by |
+|---|---|---|
+| `ghee_sales_extract.csv` | invoice line, 2,742 rows | Revenue by Year, Volume by Year, Seasonality |
+| `summary_by_year.csv` | one row per financial year | Price per Litre, Volume per Account |
+| `summary_by_salesman.csv` | one row per salesman | Salesman Productivity |
 
-Everything visual in this project is built here. The Python notebook does the data preparation and
-exploration but draws no charts, so there is one place to look for visuals and one set of numbers
-behind them.
+All three are written by the last cell of `notebooks/01_exploratory_analysis.ipynb`.
 
----
+The main extract is row level, so Tableau does its own summing and filtering works properly.
+
+The two summary files exist because a ratio of two totals, like revenue divided by litres, cannot be
+computed by a plain `SUM`. Tableau needs an aggregate calculated field for that. Doing the division in
+pandas instead, at the right level, keeps the workbook simple and keeps the arithmetic in a file you
+can read. The cost is that those two sheets do not respond to a year filter, which is fine since they
+are the year comparison.
 
 ## Connect to the data
 
@@ -39,31 +42,19 @@ extract held aggregated results, the year filter on the dashboard could not work
 The MySQL view `v_sales` does exactly the same joins and the same financial year logic. The two were
 written separately and checked against each other, which is a useful thing to have done.
 
-## Two calculated fields
+## If you build it yourself
 
-Both are used by more than one sheet, so make them now. **Analysis > Create Calculated Field**.
-
-**Realised Rate per Litre**
-
-```
-SUM([Sales Amount]) / SUM([Litres])
-```
-
-The price actually achieved. It has to be a ratio of two sums. Averaging `rate_per_carton` instead
-would give a one-carton invoice the same weight as a fifty-carton one.
-
-**Litres per Account**
+Connect each CSV as its own data source. For the two ratio charts you can either use the summary
+files as the workbook does, or create aggregate calculated fields on the main extract:
 
 ```
-SUM([Litres]) / COUNTD([Account Code])
+Realised Rate per Litre   SUM([sales_amount]) / SUM([litres])
+Litres per Account        SUM([litres]) / COUNTD([account_code])
 ```
 
-Volume per customer. `COUNTD` counts each account once no matter how many invoices it has.
-
-Because both have the aggregation inside the formula, they recalculate correctly wherever you drop
-them: by year, by city, by salesman.
-
----
+Both have the aggregation inside the formula, so they recalculate correctly wherever you drop them.
+That is the more flexible route and it is worth knowing, but it is the part most likely to trip you up
+if a sheet is set up slightly wrong.
 
 ## Sheet 1: Revenue vs Volume
 

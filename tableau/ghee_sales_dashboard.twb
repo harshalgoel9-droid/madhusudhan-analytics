@@ -29,127 +29,261 @@
           </columns>
         </relation>
         <metadata-records>
-      <metadata-record class='column'>
-        <remote-name>invoice_date</remote-name>
-        <local-name>[invoice_date]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>invoice_date</remote-alias>
-        <local-type>date</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>invoice_no</remote-name>
-        <local-name>[invoice_no]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>invoice_no</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>fy</remote-name>
-        <local-name>[fy]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>fy</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>month_no</remote-name>
-        <local-name>[month_no]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>month_no</remote-alias>
-        <local-type>integer</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>account_code</remote-name>
-        <local-name>[account_code]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>account_code</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>account_name</remote-name>
-        <local-name>[account_name]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>account_name</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>city</remote-name>
-        <local-name>[city]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>city</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>salesman_code</remote-name>
-        <local-name>[salesman_code]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>salesman_code</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>salesman_name</remote-name>
-        <local-name>[salesman_name]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>salesman_name</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>sku</remote-name>
-        <local-name>[sku]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>sku</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>product_name</remote-name>
-        <local-name>[product_name]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>product_name</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>pack_size</remote-name>
-        <local-name>[pack_size]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>pack_size</remote-alias>
-        <local-type>string</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>cartons</remote-name>
-        <local-name>[cartons]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>cartons</remote-alias>
-        <local-type>integer</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>litres</remote-name>
-        <local-name>[litres]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>litres</remote-alias>
-        <local-type>real</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>rate_per_carton</remote-name>
-        <local-name>[rate_per_carton]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>rate_per_carton</remote-alias>
-        <local-type>real</local-type>
-      </metadata-record>
-      <metadata-record class='column'>
-        <remote-name>sales_amount</remote-name>
-        <local-name>[sales_amount]</local-name>
-        <parent-name>[ghee_sales_extract#csv]</parent-name>
-        <remote-alias>sales_amount</remote-alias>
-        <local-type>real</local-type>
-      </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>invoice_date</remote-name>
+          <local-name>[invoice_date]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>invoice_date</remote-alias>
+          <local-type>date</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>invoice_no</remote-name>
+          <local-name>[invoice_no]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>invoice_no</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>fy</remote-name>
+          <local-name>[fy]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>fy</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>month_no</remote-name>
+          <local-name>[month_no]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>month_no</remote-alias>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>account_code</remote-name>
+          <local-name>[account_code]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>account_code</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>account_name</remote-name>
+          <local-name>[account_name]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>account_name</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>city</remote-name>
+          <local-name>[city]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>city</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>salesman_code</remote-name>
+          <local-name>[salesman_code]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>salesman_code</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>salesman_name</remote-name>
+          <local-name>[salesman_name]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>salesman_name</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>sku</remote-name>
+          <local-name>[sku]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>sku</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>product_name</remote-name>
+          <local-name>[product_name]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>product_name</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>pack_size</remote-name>
+          <local-name>[pack_size]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>pack_size</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>cartons</remote-name>
+          <local-name>[cartons]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>cartons</remote-alias>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>litres</remote-name>
+          <local-name>[litres]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>litres</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>rate_per_carton</remote-name>
+          <local-name>[rate_per_carton]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>rate_per_carton</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>sales_amount</remote-name>
+          <local-name>[sales_amount]</local-name>
+          <parent-name>[ghee_sales_extract#csv]</parent-name>
+          <remote-alias>sales_amount</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+    </datasource>
+    <datasource caption='By Year' inline='true' name='federated.year' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='summary_by_year' name='textscan.year'>
+            <connection class='textscan' directory='.' filename='summary_by_year.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.year' name='summary_by_year.csv' table='[summary_by_year#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='fy' ordinal='0' />
+            <column datatype='real' name='litres' ordinal='1' />
+            <column datatype='real' name='revenue' ordinal='2' />
+            <column datatype='integer' name='accounts' ordinal='3' />
+            <column datatype='integer' name='invoices' ordinal='4' />
+            <column datatype='real' name='rate_per_litre' ordinal='5' />
+            <column datatype='real' name='litres_per_account' ordinal='6' />
+          </columns>
+        </relation>
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>fy</remote-name>
+          <local-name>[fy]</local-name>
+          <parent-name>[summary_by_year#csv]</parent-name>
+          <remote-alias>fy</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>litres</remote-name>
+          <local-name>[litres]</local-name>
+          <parent-name>[summary_by_year#csv]</parent-name>
+          <remote-alias>litres</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>revenue</remote-name>
+          <local-name>[revenue]</local-name>
+          <parent-name>[summary_by_year#csv]</parent-name>
+          <remote-alias>revenue</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>accounts</remote-name>
+          <local-name>[accounts]</local-name>
+          <parent-name>[summary_by_year#csv]</parent-name>
+          <remote-alias>accounts</remote-alias>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>invoices</remote-name>
+          <local-name>[invoices]</local-name>
+          <parent-name>[summary_by_year#csv]</parent-name>
+          <remote-alias>invoices</remote-alias>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>rate_per_litre</remote-name>
+          <local-name>[rate_per_litre]</local-name>
+          <parent-name>[summary_by_year#csv]</parent-name>
+          <remote-alias>rate_per_litre</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>litres_per_account</remote-name>
+          <local-name>[litres_per_account]</local-name>
+          <parent-name>[summary_by_year#csv]</parent-name>
+          <remote-alias>litres_per_account</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+    </datasource>
+    <datasource caption='By Salesman' inline='true' name='federated.salesman' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='summary_by_salesman' name='textscan.salesman'>
+            <connection class='textscan' directory='.' filename='summary_by_salesman.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.salesman' name='summary_by_salesman.csv' table='[summary_by_salesman#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='salesman_name' ordinal='0' />
+            <column datatype='real' name='litres' ordinal='1' />
+            <column datatype='real' name='revenue' ordinal='2' />
+            <column datatype='integer' name='accounts' ordinal='3' />
+            <column datatype='real' name='litres_per_account' ordinal='4' />
+            <column datatype='real' name='rate_per_litre' ordinal='5' />
+          </columns>
+        </relation>
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>salesman_name</remote-name>
+          <local-name>[salesman_name]</local-name>
+          <parent-name>[summary_by_salesman#csv]</parent-name>
+          <remote-alias>salesman_name</remote-alias>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>litres</remote-name>
+          <local-name>[litres]</local-name>
+          <parent-name>[summary_by_salesman#csv]</parent-name>
+          <remote-alias>litres</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>revenue</remote-name>
+          <local-name>[revenue]</local-name>
+          <parent-name>[summary_by_salesman#csv]</parent-name>
+          <remote-alias>revenue</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>accounts</remote-name>
+          <local-name>[accounts]</local-name>
+          <parent-name>[summary_by_salesman#csv]</parent-name>
+          <remote-alias>accounts</remote-alias>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>litres_per_account</remote-name>
+          <local-name>[litres_per_account]</local-name>
+          <parent-name>[summary_by_salesman#csv]</parent-name>
+          <remote-alias>litres_per_account</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>rate_per_litre</remote-name>
+          <local-name>[rate_per_litre]</local-name>
+          <parent-name>[summary_by_salesman#csv]</parent-name>
+          <remote-alias>rate_per_litre</remote-alias>
+          <local-type>real</local-type>
+        </metadata-record>
         </metadata-records>
       </connection>
     </datasource>
   </datasources>
   <worksheets>
-    <worksheet name='Revenue vs Volume'>
+    <worksheet name='Revenue by Year'>
       <layout-options>
         <title>
-          <formatted-text><run fontsize='11' bold='true'>Revenue is growing faster than volume</run></formatted-text>
+          <formatted-text><run fontsize='11' bold='true'>Revenue rose 8.3% across the three years</run></formatted-text>
         </title>
       </layout-options>
       <table>
@@ -162,6 +296,34 @@
             <column-instance column='[fy]' derivation='None' name='[none:fy:nk]' pivot='key' type='nominal' />
             <column datatype='real' name='[sales_amount]' role='measure' type='quantitative' />
             <column-instance column='[sales_amount]' derivation='Sum' name='[sum:sales_amount:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view><breakdown value='auto' /></view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>[federated.ghee].[sum:sales_amount:qk]</rows>
+        <cols>[federated.ghee].[none:fy:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Volume by Year'>
+      <layout-options>
+        <title>
+          <formatted-text><run fontsize='11' bold='true'>Volume rose only 2.9%, and fell in the last year</run></formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Ghee Sales' name='federated.ghee' />
+          </datasources>
+          <datasource-dependencies datasource='federated.ghee'>
+            <column datatype='string' name='[fy]' role='dimension' type='nominal' />
+            <column-instance column='[fy]' derivation='None' name='[none:fy:nk]' pivot='key' type='nominal' />
             <column datatype='real' name='[litres]' role='measure' type='quantitative' />
             <column-instance column='[litres]' derivation='Sum' name='[sum:litres:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
@@ -173,33 +335,27 @@
             <view><breakdown value='auto' /></view>
             <mark class='Line' />
           </pane>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view><breakdown value='auto' /></view>
-            <mark class='Line' />
-          </pane>
         </panes>
-        <rows>([federated.ghee].[sum:sales_amount:qk] + [federated.ghee].[sum:litres:qk])</rows>
+        <rows>[federated.ghee].[sum:litres:qk]</rows>
         <cols>[federated.ghee].[none:fy:nk]</cols>
       </table>
     </worksheet>
     <worksheet name='Price per Litre'>
       <layout-options>
         <title>
-          <formatted-text><run fontsize='11' bold='true'>Price per litre rose 5.3% over three years</run></formatted-text>
+          <formatted-text><run fontsize='11' bold='true'>Price per litre rose 5.3%, which is where the growth came from</run></formatted-text>
         </title>
       </layout-options>
       <table>
         <view>
           <datasources>
-            <datasource caption='Ghee Sales' name='federated.ghee' />
+            <datasource caption='By Year' name='federated.year' />
           </datasources>
-          <datasource-dependencies datasource='federated.ghee'>
+          <datasource-dependencies datasource='federated.year'>
             <column datatype='string' name='[fy]' role='dimension' type='nominal' />
             <column-instance column='[fy]' derivation='None' name='[none:fy:nk]' pivot='key' type='nominal' />
-            <column caption='Realised Rate per Litre' datatype='real' name='[Calculation_rate]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='SUM([sales_amount]) / SUM([litres])' />
-            </column>
-            <column-instance column='[Calculation_rate]' derivation='User' name='[usr:Calculation_rate:qk]' pivot='key' type='quantitative' />
+            <column datatype='real' name='[rate_per_litre]' role='measure' type='quantitative' />
+            <column-instance column='[rate_per_litre]' derivation='Avg' name='[avg:rate_per_litre:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <aggregation value='true' />
         </view>
@@ -210,8 +366,8 @@
             <mark class='Bar' />
           </pane>
         </panes>
-        <rows>[federated.ghee].[usr:Calculation_rate:qk]</rows>
-        <cols>[federated.ghee].[none:fy:nk]</cols>
+        <rows>[federated.year].[avg:rate_per_litre:qk]</rows>
+        <cols>[federated.year].[none:fy:nk]</cols>
       </table>
     </worksheet>
     <worksheet name='Volume per Account'>
@@ -223,17 +379,13 @@
       <table>
         <view>
           <datasources>
-            <datasource caption='Ghee Sales' name='federated.ghee' />
+            <datasource caption='By Year' name='federated.year' />
           </datasources>
-          <datasource-dependencies datasource='federated.ghee'>
+          <datasource-dependencies datasource='federated.year'>
             <column datatype='string' name='[fy]' role='dimension' type='nominal' />
             <column-instance column='[fy]' derivation='None' name='[none:fy:nk]' pivot='key' type='nominal' />
-            <column caption='Litres per Account' datatype='real' name='[Calculation_lpa]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='SUM([litres]) / COUNTD([account_code])' />
-            </column>
-            <column-instance column='[Calculation_lpa]' derivation='User' name='[usr:Calculation_lpa:qk]' pivot='key' type='quantitative' />
-            <column datatype='string' name='[account_code]' role='measure' type='quantitative' />
-            <column-instance column='[account_code]' derivation='CountD' name='[ctd:account_code:qk]' pivot='key' type='quantitative' />
+            <column datatype='real' name='[litres_per_account]' role='measure' type='quantitative' />
+            <column-instance column='[litres_per_account]' derivation='Avg' name='[avg:litres_per_account:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <aggregation value='true' />
         </view>
@@ -243,13 +395,9 @@
             <view><breakdown value='auto' /></view>
             <mark class='Bar' />
           </pane>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view><breakdown value='auto' /></view>
-            <mark class='Line' />
-          </pane>
         </panes>
-        <rows>([federated.ghee].[usr:Calculation_lpa:qk] + [federated.ghee].[ctd:account_code:qk])</rows>
-        <cols>[federated.ghee].[none:fy:nk]</cols>
+        <rows>[federated.year].[avg:litres_per_account:qk]</rows>
+        <cols>[federated.year].[none:fy:nk]</cols>
       </table>
     </worksheet>
     <worksheet name='Seasonality'>
@@ -291,15 +439,13 @@
       <table>
         <view>
           <datasources>
-            <datasource caption='Ghee Sales' name='federated.ghee' />
+            <datasource caption='By Salesman' name='federated.salesman' />
           </datasources>
-          <datasource-dependencies datasource='federated.ghee'>
+          <datasource-dependencies datasource='federated.salesman'>
             <column datatype='string' name='[salesman_name]' role='dimension' type='nominal' />
             <column-instance column='[salesman_name]' derivation='None' name='[none:salesman_name:nk]' pivot='key' type='nominal' />
-            <column caption='Litres per Account' datatype='real' name='[Calculation_lpa]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='SUM([litres]) / COUNTD([account_code])' />
-            </column>
-            <column-instance column='[Calculation_lpa]' derivation='User' name='[usr:Calculation_lpa:qk]' pivot='key' type='quantitative' />
+            <column datatype='real' name='[litres_per_account]' role='measure' type='quantitative' />
+            <column-instance column='[litres_per_account]' derivation='Avg' name='[avg:litres_per_account:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <aggregation value='true' />
         </view>
@@ -310,8 +456,8 @@
             <mark class='Bar' />
           </pane>
         </panes>
-        <rows>[federated.ghee].[none:salesman_name:nk]</rows>
-        <cols>[federated.ghee].[usr:Calculation_lpa:qk]</cols>
+        <rows>[federated.salesman].[none:salesman_name:nk]</rows>
+        <cols>[federated.salesman].[avg:litres_per_account:qk]</cols>
       </table>
     </worksheet>
   </worksheets>
@@ -321,23 +467,35 @@
       <size maxheight='900' maxwidth='1200' minheight='900' minwidth='1200' />
       <zones>
         <zone h='100000' id='1' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='6000' id='2' type-v2='text' w='100000' x='0' y='0'>
+          <zone h='8000' id='2' type-v2='text' w='100000' x='0' y='0'>
             <formatted-text>
               <run bold='true' fontsize='16'>Madhusudan Ghee - Sales Review, FY2022-23 to FY2024-25</run>
               <run fontsize='11'>&#10;Revenue is up 8.3%. Volume is up 2.9%. The difference is price, and established customers are buying 8.9% less.</run>
             </formatted-text>
           </zone>
-          <zone h='30000' id='3' name='Revenue vs Volume' w='50000' x='0' y='6000' />
-          <zone h='30000' id='4' name='Price per Litre' w='50000' x='50000' y='6000' />
-          <zone h='32000' id='5' name='Volume per Account' w='100000' x='0' y='36000' />
-          <zone h='32000' id='6' name='Seasonality' w='50000' x='0' y='68000' />
-          <zone h='32000' id='7' name='Salesman Productivity' w='50000' x='50000' y='68000' />
+          <zone h='30000' id='3' name='Revenue by Year' w='50000' x='0' y='8000' />
+          <zone h='30000' id='4' name='Volume by Year' w='50000' x='50000' y='8000' />
+          <zone h='31000' id='5' name='Price per Litre' w='50000' x='0' y='38000' />
+          <zone h='31000' id='6' name='Volume per Account' w='50000' x='50000' y='38000' />
+          <zone h='31000' id='7' name='Seasonality' w='50000' x='0' y='69000' />
+          <zone h='31000' id='8' name='Salesman Productivity' w='50000' x='50000' y='69000' />
         </zone>
       </zones>
     </dashboard>
   </dashboards>
   <windows source-height='30'>
-    <window class='worksheet' name='Revenue vs Volume'>
+    <window class='worksheet' name='Revenue by Year'>
+      <cards>
+        <edge name='left'><strip size='160'>
+          <card type='pages' /><card type='filters' /><card type='marks' />
+        </strip></edge>
+        <edge name='top'>
+          <strip size='2147483647'><card type='columns' /></strip>
+          <strip size='2147483647'><card type='rows' /></strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' name='Volume by Year'>
       <cards>
         <edge name='left'><strip size='160'>
           <card type='pages' /><card type='filters' /><card type='marks' />
