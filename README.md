@@ -130,6 +130,7 @@ sql/
   04_business_questions.sql    ten questions
 
 tableau/
+  ghee_sales_dashboard.twb     the workbook
   ghee_sales_extract.csv       flat extract, written by the notebook
   TABLEAU_GUIDE.md             step by step dashboard build
 
@@ -191,7 +192,8 @@ Runs from the CSVs. No database needed.
 
 ### 3. Dashboard
 
-Follow `tableau/TABLEAU_GUIDE.md` using `tableau/ghee_sales_extract.csv`.
+Open `tableau/ghee_sales_dashboard.twb` from inside the `tableau` folder, so it finds the extract
+beside it. `tableau/TABLEAU_GUIDE.md` covers building it from scratch.
 
 ---
 

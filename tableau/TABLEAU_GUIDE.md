@@ -1,6 +1,19 @@
 # Building the dashboard in Tableau
 
-Step by step build for the five sheets and the dashboard. Takes about 40 minutes.
+There is a ready-made workbook in this folder: `ghee_sales_dashboard.twb`. Open it from here, so it
+finds `ghee_sales_extract.csv` sitting beside it. It has the five sheets and the dashboard already
+laid out.
+
+The rest of this file is the build from scratch, which takes about 40 minutes. Worth doing even with
+the workbook in hand, because in an interview you get asked how you made it, and you can only answer
+that about something you built.
+
+Two things the workbook leaves for you, both two clicks each:
+
+- **Revenue vs Volume** shows the two measures as stacked charts on a shared year axis. To make it a
+  dual axis, right-click the `Litres` axis and choose **Dual Axis**.
+- **Volume per Account** does the same with litres per account and the account count. Right-click the
+  `CNTD(account_code)` axis, choose **Dual Axis**, then set that mark type to **Line**.
 
 Everything visual in this project is built here. The Python notebook does the data preparation and
 exploration but draws no charts, so there is one place to look for visuals and one set of numbers
