@@ -130,10 +130,8 @@ sql/
   04_business_questions.sql    ten questions
 
 tableau/
-  ghee_sales_dashboard.twb     the workbook, six sheets and a dashboard
+  ghee_sales_dashboard.twb     the workbook
   ghee_sales_extract.csv       invoice lines, written by the notebook
-  summary_by_year.csv          one row per year, for the two ratio charts
-  summary_by_salesman.csv      one row per salesman
   TABLEAU_GUIDE.md             step by step dashboard build
 
 METHODOLOGY.md                 every step explained, and why
@@ -194,7 +192,7 @@ Runs from the CSVs. No database needed.
 
 ### 3. Dashboard
 
-Open `tableau/ghee_sales_dashboard.twb` from inside the `tableau` folder, so it finds its three CSVs
+Open `tableau/ghee_sales_dashboard.twb` from inside the `tableau` folder, so it finds the extract
 beside it. `tableau/TABLEAU_GUIDE.md` covers building it from scratch.
 
 ---

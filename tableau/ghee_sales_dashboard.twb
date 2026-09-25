@@ -48,62 +48,6 @@
       <column caption='Revenue' datatype='real' name='[sales_amount]' role='measure' type='quantitative' />
       <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
     </datasource>
-    <datasource caption='By Year' inline='true' name='federated.year' version='18.1'>
-      <connection class='federated'>
-        <named-connections>
-          <named-connection caption='summary_by_year' name='textscan.year'>
-            <connection class='textscan' directory='.' filename='summary_by_year.csv' password='' server='' />
-          </named-connection>
-        </named-connections>
-        <relation connection='textscan.year' name='summary_by_year.csv' table='[summary_by_year#csv]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
-            <column datatype='string' name='fy' ordinal='0' />
-            <column datatype='real' name='litres' ordinal='1' />
-            <column datatype='real' name='revenue' ordinal='2' />
-            <column datatype='integer' name='accounts' ordinal='3' />
-            <column datatype='integer' name='invoices' ordinal='4' />
-            <column datatype='real' name='rate_per_litre' ordinal='5' />
-            <column datatype='real' name='litres_per_account' ordinal='6' />
-          </columns>
-        </relation>
-      </connection>
-      <aliases enabled='yes' />
-      <column caption='Financial Year' datatype='string' name='[fy]' role='dimension' type='nominal' />
-      <column caption='Litres' datatype='real' name='[litres]' role='measure' type='quantitative' />
-      <column caption='Revenue' datatype='real' name='[revenue]' role='measure' type='quantitative' />
-      <column caption='Accounts' datatype='integer' name='[accounts]' role='measure' type='quantitative' />
-      <column caption='Invoices' datatype='integer' name='[invoices]' role='measure' type='quantitative' />
-      <column caption='Rate per Litre' datatype='real' name='[rate_per_litre]' role='measure' type='quantitative' />
-      <column caption='Litres per Account' datatype='real' name='[litres_per_account]' role='measure' type='quantitative' />
-      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
-    </datasource>
-    <datasource caption='By Salesman' inline='true' name='federated.salesman' version='18.1'>
-      <connection class='federated'>
-        <named-connections>
-          <named-connection caption='summary_by_salesman' name='textscan.salesman'>
-            <connection class='textscan' directory='.' filename='summary_by_salesman.csv' password='' server='' />
-          </named-connection>
-        </named-connections>
-        <relation connection='textscan.salesman' name='summary_by_salesman.csv' table='[summary_by_salesman#csv]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
-            <column datatype='string' name='salesman_name' ordinal='0' />
-            <column datatype='real' name='litres' ordinal='1' />
-            <column datatype='real' name='revenue' ordinal='2' />
-            <column datatype='integer' name='accounts' ordinal='3' />
-            <column datatype='real' name='litres_per_account' ordinal='4' />
-            <column datatype='real' name='rate_per_litre' ordinal='5' />
-          </columns>
-        </relation>
-      </connection>
-      <aliases enabled='yes' />
-      <column caption='Salesman' datatype='string' name='[salesman_name]' role='dimension' type='nominal' />
-      <column caption='Litres' datatype='real' name='[litres]' role='measure' type='quantitative' />
-      <column caption='Revenue' datatype='real' name='[revenue]' role='measure' type='quantitative' />
-      <column caption='Accounts' datatype='integer' name='[accounts]' role='measure' type='quantitative' />
-      <column caption='Litres per Account' datatype='real' name='[litres_per_account]' role='measure' type='quantitative' />
-      <column caption='Rate per Litre' datatype='real' name='[rate_per_litre]' role='measure' type='quantitative' />
-      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
-    </datasource>
   </datasources>
   <worksheets>
     <worksheet name='Revenue by Year'>
@@ -166,66 +110,6 @@
         <cols>[federated.ghee].[none:fy:nk]</cols>
       </table>
     </worksheet>
-    <worksheet name='Price per Litre'>
-      <layout-options>
-        <title>
-          <formatted-text><run fontsize='11' bold='true'>Price per litre rose 5.3%, which is where the growth came from</run></formatted-text>
-        </title>
-      </layout-options>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='By Year' name='federated.year' />
-          </datasources>
-          <datasource-dependencies datasource='federated.year'>
-            <column caption='Financial Year' datatype='string' name='[fy]' role='dimension' type='nominal' />
-            <column-instance column='[fy]' derivation='None' name='[none:fy:nk]' pivot='key' type='nominal' />
-            <column caption='Rate per Litre' datatype='real' name='[rate_per_litre]' role='measure' type='quantitative' />
-            <column-instance column='[rate_per_litre]' derivation='Avg' name='[avg:rate_per_litre:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view><breakdown value='auto' /></view>
-            <mark class='Bar' />
-          </pane>
-        </panes>
-        <rows>[federated.year].[avg:rate_per_litre:qk]</rows>
-        <cols>[federated.year].[none:fy:nk]</cols>
-      </table>
-    </worksheet>
-    <worksheet name='Volume per Account'>
-      <layout-options>
-        <title>
-          <formatted-text><run fontsize='11' bold='true'>Accounts up 18%, litres per account down 13%</run></formatted-text>
-        </title>
-      </layout-options>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='By Year' name='federated.year' />
-          </datasources>
-          <datasource-dependencies datasource='federated.year'>
-            <column caption='Financial Year' datatype='string' name='[fy]' role='dimension' type='nominal' />
-            <column-instance column='[fy]' derivation='None' name='[none:fy:nk]' pivot='key' type='nominal' />
-            <column caption='Litres per Account' datatype='real' name='[litres_per_account]' role='measure' type='quantitative' />
-            <column-instance column='[litres_per_account]' derivation='Avg' name='[avg:litres_per_account:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view><breakdown value='auto' /></view>
-            <mark class='Bar' />
-          </pane>
-        </panes>
-        <rows>[federated.year].[avg:litres_per_account:qk]</rows>
-        <cols>[federated.year].[none:fy:nk]</cols>
-      </table>
-    </worksheet>
     <worksheet name='Seasonality'>
       <layout-options>
         <title>
@@ -256,22 +140,22 @@
         <cols>[federated.ghee].[none:month_no:ok]</cols>
       </table>
     </worksheet>
-    <worksheet name='Salesman Productivity'>
+    <worksheet name='Revenue by City'>
       <layout-options>
         <title>
-          <formatted-text><run fontsize='11' bold='true'>One salesman is well ahead, at the same price</run></formatted-text>
+          <formatted-text><run fontsize='11' bold='true'>Kairana carries 19% of revenue</run></formatted-text>
         </title>
       </layout-options>
       <table>
         <view>
           <datasources>
-            <datasource caption='By Salesman' name='federated.salesman' />
+            <datasource caption='Ghee Sales' name='federated.ghee' />
           </datasources>
-          <datasource-dependencies datasource='federated.salesman'>
-            <column caption='Salesman' datatype='string' name='[salesman_name]' role='dimension' type='nominal' />
-            <column-instance column='[salesman_name]' derivation='None' name='[none:salesman_name:nk]' pivot='key' type='nominal' />
-            <column caption='Litres per Account' datatype='real' name='[litres_per_account]' role='measure' type='quantitative' />
-            <column-instance column='[litres_per_account]' derivation='Avg' name='[avg:litres_per_account:qk]' pivot='key' type='quantitative' />
+          <datasource-dependencies datasource='federated.ghee'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column caption='Revenue' datatype='real' name='[sales_amount]' role='measure' type='quantitative' />
+            <column-instance column='[sales_amount]' derivation='Sum' name='[sum:sales_amount:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <aggregation value='true' />
         </view>
@@ -282,8 +166,8 @@
             <mark class='Bar' />
           </pane>
         </panes>
-        <rows>[federated.salesman].[none:salesman_name:nk]</rows>
-        <cols>[federated.salesman].[avg:litres_per_account:qk]</cols>
+        <rows>[federated.ghee].[none:city:nk]</rows>
+        <cols>[federated.ghee].[sum:sales_amount:qk]</cols>
       </table>
     </worksheet>
   </worksheets>
@@ -299,12 +183,10 @@
               <run fontsize='11'>&#10;Revenue is up 8.3%. Volume is up 2.9%. The difference is price, and established customers are buying 8.9% less.</run>
             </formatted-text>
           </zone>
-          <zone h='30000' id='3' name='Revenue by Year' w='50000' x='0' y='8000' />
-          <zone h='30000' id='4' name='Volume by Year' w='50000' x='50000' y='8000' />
-          <zone h='31000' id='5' name='Price per Litre' w='50000' x='0' y='38000' />
-          <zone h='31000' id='6' name='Volume per Account' w='50000' x='50000' y='38000' />
-          <zone h='31000' id='7' name='Seasonality' w='50000' x='0' y='69000' />
-          <zone h='31000' id='8' name='Salesman Productivity' w='50000' x='50000' y='69000' />
+          <zone h='46000' id='3' name='Revenue by Year' w='50000' x='0' y='8000' />
+          <zone h='46000' id='4' name='Volume by Year' w='50000' x='50000' y='8000' />
+          <zone h='46000' id='5' name='Seasonality' w='50000' x='0' y='54000' />
+          <zone h='46000' id='6' name='Revenue by City' w='50000' x='50000' y='54000' />
         </zone>
       </zones>
     </dashboard>
@@ -332,28 +214,6 @@
         </edge>
       </cards>
     </window>
-    <window class='worksheet' name='Price per Litre'>
-      <cards>
-        <edge name='left'><strip size='160'>
-          <card type='pages' /><card type='filters' /><card type='marks' />
-        </strip></edge>
-        <edge name='top'>
-          <strip size='2147483647'><card type='columns' /></strip>
-          <strip size='2147483647'><card type='rows' /></strip>
-        </edge>
-      </cards>
-    </window>
-    <window class='worksheet' name='Volume per Account'>
-      <cards>
-        <edge name='left'><strip size='160'>
-          <card type='pages' /><card type='filters' /><card type='marks' />
-        </strip></edge>
-        <edge name='top'>
-          <strip size='2147483647'><card type='columns' /></strip>
-          <strip size='2147483647'><card type='rows' /></strip>
-        </edge>
-      </cards>
-    </window>
     <window class='worksheet' name='Seasonality'>
       <cards>
         <edge name='left'><strip size='160'>
@@ -365,7 +225,7 @@
         </edge>
       </cards>
     </window>
-    <window class='worksheet' name='Salesman Productivity'>
+    <window class='worksheet' name='Revenue by City'>
       <cards>
         <edge name='left'><strip size='160'>
           <card type='pages' /><card type='filters' /><card type='marks' />

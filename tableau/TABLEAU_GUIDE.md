@@ -1,28 +1,19 @@
 # Building the dashboard in Tableau
 
-There is a ready-made workbook here: `ghee_sales_dashboard.twb`. Open it from this folder so it finds
-its three CSVs beside it. It has six sheets and a dashboard already laid out.
+`ghee_sales_dashboard.twb` in this folder has four sheets and a dashboard, all reading
+`ghee_sales_extract.csv`. Open it from this folder so it finds the CSV beside it.
 
-The rest of this file is the build from scratch, about 40 minutes. Worth doing anyway, because in an
-interview you get asked how you made it, and you can only answer that about something you built.
+Two more sheets need calculated fields and are left for you to build. Steps are below under
+"The two ratio sheets". They are the two charts that carry the finding, so they are worth doing.
 
-## The three data files
+The rest of this file builds everything from scratch, about 40 minutes.
 
-| File | Grain | Used by |
-|---|---|---|
-| `ghee_sales_extract.csv` | invoice line, 2,742 rows | Revenue by Year, Volume by Year, Seasonality |
-| `summary_by_year.csv` | one row per financial year | Price per Litre, Volume per Account |
-| `summary_by_salesman.csv` | one row per salesman | Salesman Productivity |
+## The data
 
-All three are written by the last cell of `notebooks/01_exploratory_analysis.ipynb`.
+One file: `ghee_sales_extract.csv`, 2,742 invoice lines, written by the last cell of
+`notebooks/01_exploratory_analysis.ipynb`.
 
-The main extract is row level, so Tableau does its own summing and filtering works properly.
-
-The two summary files exist because a ratio of two totals, like revenue divided by litres, cannot be
-computed by a plain `SUM`. Tableau needs an aggregate calculated field for that. Doing the division in
-pandas instead, at the right level, keeps the workbook simple and keeps the arithmetic in a file you
-can read. The cost is that those two sheets do not respond to a year filter, which is fine since they
-are the year comparison.
+It is row level, so Tableau does its own summing and every filter works across every sheet.
 
 ## Connect to the data
 
@@ -42,19 +33,50 @@ extract held aggregated results, the year filter on the dashboard could not work
 The MySQL view `v_sales` does exactly the same joins and the same financial year logic. The two were
 written separately and checked against each other, which is a useful thing to have done.
 
-## If you build it yourself
+## The two ratio sheets
 
-Connect each CSV as its own data source. For the two ratio charts you can either use the summary
-files as the workbook does, or create aggregate calculated fields on the main extract:
+These need calculated fields, because a ratio of two totals cannot be produced by `SUM`.
 
-```
-Realised Rate per Litre   SUM([sales_amount]) / SUM([litres])
-Litres per Account        SUM([litres]) / COUNTD([account_code])
-```
+**Analysis > Create Calculated Field**, twice:
 
-Both have the aggregation inside the formula, so they recalculate correctly wherever you drop them.
-That is the more flexible route and it is worth knowing, but it is the part most likely to trip you up
-if a sheet is set up slightly wrong.
+| Name | Formula |
+|---|---|
+| `Realised Rate per Litre` | `SUM([sales_amount]) / SUM([litres])` |
+| `Litres per Account` | `SUM([litres]) / COUNTD([account_code])` |
+
+The aggregation sits inside the formula. That is what makes them recalculate correctly wherever they
+are dropped, so the same field works by year, by city or by salesman without being rewritten.
+
+`COUNTD` counts each account once however many invoices it has. `COUNT` would count invoices.
+
+**Price per Litre**
+
+1. Columns: `Fy`
+2. Rows: `Realised Rate per Litre`
+3. Marks: Bar, and drag the same field onto Label
+4. Click the axis, Edit Axis, set the range 540 to 590
+
+Check the numbers read 552.62, 567.19, 581.65. If they do not, the calculated field is wrong.
+
+On the truncated axis: bars normally start at zero because length encodes value. This is a trend in a
+rate, and a zero-based axis flattens a real 5.3% rise into nothing. Worth being able to say why.
+
+**Volume per Account**
+
+1. Columns: `Fy`
+2. Rows: `Litres per Account`, marks Bar, add a label
+3. Drag `Account Code` to Rows, right-click it, Measure > Count (Distinct)
+4. Right-click that second axis, Dual Axis, and set its mark type to Line
+
+Check litres per account reads 152.4, 141.6, 132.4 and the account count reads 114, 127, 135.
+
+Both series belong on one chart. Alone, "more customers" looks like good news and "less volume each"
+looks like bad news. Together they are the finding.
+
+**Add them to the dashboard**
+
+Open the `Sales Review` dashboard and drag each new sheet in from the left panel. Tableau reflows the
+layout as you drop them.
 
 ## Sheet 1: Revenue vs Volume
 
