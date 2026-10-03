@@ -7,6 +7,8 @@ FY2024-25.
 
 ![Sales Review dashboard](docs/images/dashboard.png)
 
+**[View the interactive dashboard on Tableau Public](https://public.tableau.com/app/profile/harsh.goel8730/viz/Madhusudan_Sales_Review/SalesReview)**
+
 ---
 
 ## Problem statement
@@ -183,7 +185,8 @@ Runs from the CSVs. No database needed.
 
 ### 3. Dashboard
 
-Open `tableau/ghee_sales_dashboard.twb` from inside the `tableau` folder, so it finds the extract
+The published version is on [Tableau Public](https://public.tableau.com/app/profile/harsh.goel8730/viz/Madhusudan_Sales_Review/SalesReview).
+To open it locally, open `tableau/ghee_sales_dashboard.twb` from inside the `tableau` folder, so it finds the extract
 beside it.
 
 ---
