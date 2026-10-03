@@ -5,6 +5,8 @@ Python · MySQL · Tableau
 A three year sales review for a ghee distributorship in western Uttar Pradesh, covering FY2022-23 to
 FY2024-25.
 
+![Sales Review dashboard](docs/images/dashboard.png)
+
 ---
 
 ## Problem statement
