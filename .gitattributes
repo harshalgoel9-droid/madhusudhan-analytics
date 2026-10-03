@@ -1,0 +1,2 @@
+# Keep CSV line endings as LF on every OS, so LOAD DATA works the same on Windows
+*.csv text eol=lf

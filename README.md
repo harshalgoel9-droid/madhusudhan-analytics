@@ -58,8 +58,8 @@ through the questions with summary tables. It draws no charts.
 **MySQL** holds the formal analysis. Four files build the database, load it, create a view, and answer
 ten business questions. Anyone can run them and get the same numbers.
 
-**Tableau** builds the dashboard. Five sheets and one dashboard, from a flat extract written by the
-notebook.
+**Tableau** presents the results: a workbook of four sheets and a dashboard, reading a flat extract
+written by the notebook.
 
 The questions are ordered as an argument rather than a list. Q1 and Q2 ask whether the business is
 growing and on what. Q3 to Q5 follow up on what the customers are doing. Q6 and Q7 cover what sells
@@ -103,14 +103,6 @@ revenue follows volume down.
 
 ---
 
-## Dashboard
-
-<!-- Add after building in Tableau - see tableau/TABLEAU_GUIDE.md -->
-
-![Dashboard](docs/images/dashboard.png)
-
----
-
 ## Repository
 
 ```
@@ -132,7 +124,6 @@ sql/
 tableau/
   ghee_sales_dashboard.twb     the workbook
   ghee_sales_extract.csv       invoice lines, written by the notebook
-  TABLEAU_GUIDE.md             step by step dashboard build
 ```
 
 ---
@@ -191,7 +182,7 @@ Runs from the CSVs. No database needed.
 ### 3. Dashboard
 
 Open `tableau/ghee_sales_dashboard.twb` from inside the `tableau` folder, so it finds the extract
-beside it. `tableau/TABLEAU_GUIDE.md` covers building it from scratch.
+beside it.
 
 ---
 
@@ -202,7 +193,7 @@ beside it. `tableau/TABLEAU_GUIDE.md` covers building it from scratch.
 
 **Python** - pandas: merge, groupby, pivot_table, cohort construction, data quality checks
 
-**Tableau** - dual axis charts, level of detail in calculated fields, dashboard actions and filtering
+**Tableau** - a dashboard of revenue, volume, seasonality and city sheets built on a row-level extract
 
 **Analysis** - growth decomposition into price and volume, cohort analysis, seasonality indexing,
 per-unit normalisation for fair comparison, revenue concentration
