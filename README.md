@@ -58,8 +58,8 @@ through the questions with summary tables. It draws no charts.
 **MySQL** holds the formal analysis. Four files build the database, load it, create a view, and answer
 ten business questions. Anyone can run them and get the same numbers.
 
-**Tableau** presents the results: a workbook of four sheets and a dashboard, reading a flat extract
-written by the notebook.
+**Tableau** presents the results: five sheets on one dashboard, reading a flat extract written by the
+notebook.
 
 The questions are ordered as an argument rather than a list. Q1 and Q2 ask whether the business is
 growing and on what. Q3 to Q5 follow up on what the customers are doing. Q6 and Q7 cover what sells
@@ -122,7 +122,7 @@ sql/
   04_business_questions.sql    ten questions
 
 tableau/
-  ghee_sales_dashboard.twb     the workbook
+  ghee_sales_dashboard.twb     the workbook: five sheets and the Sales Review dashboard
   ghee_sales_extract.csv       invoice lines, written by the notebook
 ```
 
@@ -193,7 +193,9 @@ beside it.
 
 **Python** - pandas: merge, groupby, pivot_table, cohort construction, data quality checks
 
-**Tableau** - a dashboard of revenue, volume, seasonality and city sheets built on a row-level extract
+**Tableau** - calculated fields (price per litre, litres per account), a table calculation
+(`WINDOW_MIN`) for the seasonal index, dual axis charts, a reference line, and a financial year filter
+applied to every sheet on the dashboard
 
 **Analysis** - growth decomposition into price and volume, cohort analysis, seasonality indexing,
 per-unit normalisation for fair comparison, revenue concentration
