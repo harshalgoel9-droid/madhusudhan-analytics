@@ -1,17 +1,6 @@
--- =====================================================================
--- Madhusudan Ghee - database and tables
--- MySQL 8.0
--- =====================================================================
--- Run this first, in MySQL Workbench.
---
--- Four tables. One fact table (sales) holding the numbers we add up,
--- and three dimension tables holding the labels we group by. This is a
--- star schema.
---
--- Keeping names and cities out of the fact table means each is stored
--- once. A shop that changes its name is corrected in one row instead of
--- in thirty.
--- =====================================================================
+-- Madhusudan Ghee: database and tables (MySQL 8.0)
+-- Star schema: sales is the fact table, products / salesmen / customers are dimensions.
+-- Run this first.
 
 DROP DATABASE IF EXISTS ghee_analytics;
 CREATE DATABASE ghee_analytics
@@ -21,12 +10,8 @@ CREATE DATABASE ghee_analytics
 USE ghee_analytics;
 
 
--- ---------------------------------------------------------------------
--- products - one row per pack size (3 rows)
--- ---------------------------------------------------------------------
--- Every carton holds 15 litres whatever the pack size: 15 x 1 L,
--- 30 x 500 ml, or 75 x 200 ml. That is why litres_per_carton is 15 on
--- all three rows.
+-- products: one row per pack size
+-- every carton is 15 litres (15 x 1 L, 30 x 500 ml, 75 x 200 ml)
 CREATE TABLE products (
     sku               VARCHAR(20)  NOT NULL,
     product_name      VARCHAR(60)  NOT NULL,
@@ -37,9 +22,7 @@ CREATE TABLE products (
 ) ENGINE = InnoDB;
 
 
--- ---------------------------------------------------------------------
--- salesmen - one row per field salesman (5 rows)
--- ---------------------------------------------------------------------
+-- salesmen: one row per salesman
 CREATE TABLE salesmen (
     salesman_code VARCHAR(10) NOT NULL,
     salesman_name VARCHAR(60) NOT NULL,
@@ -47,11 +30,7 @@ CREATE TABLE salesmen (
 ) ENGINE = InnoDB;
 
 
--- ---------------------------------------------------------------------
--- customers - one row per account (143 rows)
--- ---------------------------------------------------------------------
--- Each account sits in one city and belongs to one salesman, so city
--- performance and salesman performance are two views of the same split.
+-- customers: one row per account, each account has one salesman
 CREATE TABLE customers (
     account_code  VARCHAR(10) NOT NULL,
     account_name  VARCHAR(80) NOT NULL,
@@ -63,15 +42,8 @@ CREATE TABLE customers (
 ) ENGINE = InnoDB;
 
 
--- ---------------------------------------------------------------------
--- sales - one row per invoice line (2,742 rows)
--- ---------------------------------------------------------------------
--- The grain is the invoice LINE, not the invoice. An invoice covering
--- two pack sizes is two rows here. That is why invoice counts always
--- use COUNT(DISTINCT invoice_no) and never COUNT(*).
---
--- Amounts are ex-GST. Tax is collected on the government's behalf and
--- is not revenue, so the tax columns are not loaded.
+-- sales: one row per invoice line (not per invoice), so count invoices with COUNT(DISTINCT invoice_no)
+-- amounts are ex-GST
 CREATE TABLE sales (
     invoice_date    DATE          NOT NULL,
     invoice_no      VARCHAR(30)   NOT NULL,
@@ -88,8 +60,7 @@ CREATE TABLE sales (
         FOREIGN KEY (sku) REFERENCES products (sku)
 ) ENGINE = InnoDB;
 
--- Indexes on the columns we group and filter by. On 2,742 rows this
--- makes no difference you can feel. It is the habit that matters.
+-- indexes on the columns used for grouping and filtering
 CREATE INDEX idx_sales_date    ON sales (invoice_date);
 CREATE INDEX idx_sales_account ON sales (account_code);
 CREATE INDEX idx_sales_sku     ON sales (sku);
