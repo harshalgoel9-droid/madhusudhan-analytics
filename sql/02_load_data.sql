@@ -1,11 +1,4 @@
 -- Load the four CSV files (MySQL 8.0). Run after 01_create_tables.sql.
---
--- Before running:
---   1. Change the file paths below to your data folder (use forward slashes on Windows).
---   2. Allow local file loading: Database > Manage Connections > Advanced > Others,
---      add OPT_LOCAL_INFILE=1, then reconnect.
---   If LOAD DATA still fails, use Table Data Import Wizard (right-click the table).
---
 -- Load order: products, salesmen, customers, then sales (foreign keys).
 
 USE ghee_analytics;

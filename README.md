@@ -172,7 +172,7 @@ sql/04_business_questions.sql    the ten questions
 ```
 
 `02_load_data.sql` needs the four file paths changed to point at the `data` folder on your machine,
-and local file loading enabled. Both are explained in comments at the top of that file.
+and local file loading enabled (`OPT_LOCAL_INFILE=1` in the Workbench connection settings).
 
 ### 2. Notebook
 
